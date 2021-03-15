@@ -29,10 +29,9 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
             android:text="rech"
             android:textColor="#B5171611"
             android:textSize="18sp"
@@ -41,8 +40,7 @@
         <SearchView
             android:id="@+id/sv_rech"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
@@ -50,11 +48,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp"
-        android:layout_weight="1"
         android:orientation="horizontal">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycle_view"
+            android:id="@+id/recycler_contact"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

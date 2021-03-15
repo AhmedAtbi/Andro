@@ -30,6 +30,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
         LayoutInflater inf = LayoutInflater.from(con);
         View v = inf.inflate(R.layout.view_contact,parent, false);
 
+
         return new MyViewHolder(v);
     }
 
@@ -37,9 +38,9 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         //affectation des valeurs dans les holders
         Contact c =data.get(position);
-        holder.tvnom.setText(c.nom);
-        holder.tvprenom.setText(c.prenom);
-        holder.tvnum.setText(c.num);
+        holder.tvnom.setText(c.getNom());
+        holder.tvprenom.setText(c.getPrenom());
+        holder.tvnum.setText(c.getNum());
     }
 
     @Override
@@ -53,9 +54,9 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
         public MyViewHolder(@NonNull View v) {
             super(v);
             //recuperation des composants
-            TextView tv_nom = v.findViewById(R.id.tv_nom);
-            TextView tv_pre = v.findViewById(R.id.tv_prenom);
-            TextView tv_num = v.findViewById(R.id.tv_num);
+             tvnom = v.findViewById(R.id.tv_nom);
+             tvprenom = v.findViewById(R.id.tv_prenom);
+            tvnum = v.findViewById(R.id.tv_num);
             btnCall = v.findViewById(R.id.imgbtn_call_view);
             btnSms = v.findViewById(R.id.imgbtn_sms_view);
 

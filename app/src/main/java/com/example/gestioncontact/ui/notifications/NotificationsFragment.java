@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,11 +31,25 @@ public class NotificationsFragment extends Fragment {
         prenom = root.findViewById(R.id.modif_prenom);
         num=root.findViewById(R.id.modif_num);
         btn_quit=root.findViewById(R.id.btn_qt);
-        btn_val=root.findViewById(R.id.btn_val);
+        btn_val=root.findViewById(R.id.btn_ajout);
 
-        Contact c = new Contact(nom.getText().toString() , prenom.getText().toString(), num.getText().toString());
-        ContactManager cm = new ContactManager(getActivity());
-        cm.ajoutContact(nom.getText().toString() , prenom.getText().toString(), num.getText().toString());
+
+        btn_val.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (nom.getText().toString().isEmpty()||prenom.getText().toString().isEmpty()|| num.getText().toString().isEmpty())
+                {
+                    Toast.makeText(getActivity(), "Complete form", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                Contact c = new Contact(nom.getText().toString() , prenom.getText().toString(), num.getText().toString());
+                ContactManager cm = new ContactManager(getActivity());
+                cm.ajouterContact(c);}
+
+            }
+        });
+
 
         return root;
     }

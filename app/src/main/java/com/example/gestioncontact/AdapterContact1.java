@@ -4,43 +4,23 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //afficher et creer les vu pour chaque donnée
-public class AdapterContact1 extends BaseAdapter
+public class AdapterContact1 extends ArrayAdapter
 {
-    Context con;
 
-    ArrayList<Contact> data;
-
-    public AdapterContact1(Context con , ArrayList<Contact> data ) {
-        this.con = con;
-        this.data = data;
-    }
-
-
-    @Override
-    public int getCount()
-    {
-        return data.size(); //nbre des vue cree
-    }
-
-    @Override
-    public Object getItem(int position)
-    {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int position)
-    {
-        return 0;
+    public AdapterContact1(@NonNull Context context,  @NonNull List objects) {
+        super(context, R.layout.view_contact, objects);
     }
 
     @Override
@@ -48,16 +28,16 @@ public class AdapterContact1 extends BaseAdapter
         //TextView t = new TextView(con);
         //  t.setText(data.get(position).toString());
         //  return t;
-        LayoutInflater inf = LayoutInflater.from(con);
+        LayoutInflater inf = LayoutInflater.from(getContext());
         LinearLayout l = (LinearLayout) inf.inflate(R.layout.view_contact, null);
         //recuperation des composants
-        TextView tvnum =l.findViewById(R.id.tv_nom);
-        TextView tvlat =l.findViewById(R.id.tv_prenom);
-        TextView tvlong =l.findViewById(R.id.tv_num);
-        Contact c =data.get(position);
-        tvnum.setText(c.nom);
-        tvlong.setText(c.prenom);
-        tvlat.setText(c.num);
+        TextView tvnom =l.findViewById(R.id.tv_nom);
+        TextView tvprenom =l.findViewById(R.id.tv_prenom);
+        TextView tvnum =l.findViewById(R.id.tv_num);
+        Contact c = (Contact) getItem(position);
+        tvnom.setText(c.nom);
+        tvprenom.setText(c.prenom);
+        tvnum.setText(c.num);
 
         return l;
     }

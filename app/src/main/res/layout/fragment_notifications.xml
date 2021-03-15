@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ajout"
     android:orientation="vertical"
-    tools:context=".Ajout">
+    tools:context=".ui.notifications.NotificationsFragment">
 
     <TextView
         android:id="@+id/textView5"
@@ -121,7 +121,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/modifAjt"
+            android:id="@+id/btn_quit_ajout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -132,7 +132,7 @@
             app:backgroundTint="#773881" />
 
         <Button
-            android:id="@+id/modifVal"
+            android:id="@+id/btn_ajout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
