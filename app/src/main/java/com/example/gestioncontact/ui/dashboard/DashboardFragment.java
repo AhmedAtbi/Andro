@@ -54,12 +54,13 @@ public class DashboardFragment extends Fragment {
                 return false;
             }
 
+
             @Override
             public boolean onQueryTextChange(String newText) {
 
                 data_rech= cm.RechercheContact(newText);
-                //AdapterContact1 ad1 = new AdapterContact1(getContext(), data_rech);
-                ContactAdapter ad = new ContactAdapter(getActivity(),data);
+               // AdapterContact1 ad1 = new AdapterContact1(getContext(), data_rech);
+                ContactAdapter ad = new ContactAdapter(getActivity(),data_rech);
                 rc.setAdapter(ad);
 
                 return false;
